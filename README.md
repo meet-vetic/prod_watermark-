@@ -1,35 +1,42 @@
-<img src="icons/icon128.png" width="64" align="right" alt="Prod Guard icon" />
+# Prod Guard
 
-# 🛡️ Prod Guard
+A Chrome extension that overlays a watermark on production websites, to reduce the risk of making changes in the wrong environment.
 
-> *Is this staging or prod?* 😰 Never wonder again.
+## Installation
 
-Prod Guard stamps a big red watermark over the production sites you choose, so you don't break prod by accident.
+1. Download this repository (**Code → Download ZIP**) and extract it.
+2. Open `chrome://extensions` in Chrome.
+3. Enable **Developer mode**.
+4. Click **Load unpacked** and select the extracted folder.
+5. Optionally, pin the extension to the toolbar.
 
-## 🚀 Install (2 minutes)
+## Usage
 
-1. **Download** this repo: `Code → Download ZIP`, then unzip it.
-2. Open **`chrome://extensions`** in Chrome.
-3. Turn on **Developer mode** (top-right toggle).
-4. Click **Load unpacked** and pick the unzipped folder.
-5. Pin the 🟥 **P** icon to your toolbar. Done! 🎉
+1. Open a production site and click the extension icon.
+2. Click **Mark this site as PROD**, or enter a domain manually.
+3. The watermark appears immediately on all open tabs for that domain.
 
-## 🎯 Use it
+### Domain matching
 
-1. Open a production site.
-2. Click the **P** icon, then **+ Mark this site as PROD**.
-3. Boom 💥 the site now has a red watermark.
+| Entry           | Matches                                  |
+|-----------------|------------------------------------------|
+| `app.example.com` | Only `app.example.com`                  |
+| `*.example.com`   | `example.com` and all of its subdomains |
 
-**Tips**
-- `*.example.com` covers the domain **and** all of its subdomains.
-- You can paste a full URL; Prod Guard keeps only the hostname.
-- Change the watermark text from the popup (default: `PRODUCTION`).
-- Flip the **On** switch to pause it. Changes apply to open tabs right away.
+Full URLs are accepted. Only the hostname is saved.
 
-## 🔒 Privacy
+### Settings
 
-No tracking and no servers. Your domain list stays in Chrome sync storage.
+- **Watermark text:** defaults to `PRODUCTION`. You can change it in the popup.
+- **On/Off:** turns the watermark off on all sites without clearing your domain list.
 
----
+## Privacy
 
-Made with ☕ so nobody runs `DROP TABLE` on the wrong tab.
+The extension collects no data and makes no network requests. Settings are stored in `chrome.storage.sync`.
+
+## Permissions
+
+| Permission  | Purpose                                     |
+|-------------|---------------------------------------------|
+| `storage`   | Save the domain list and settings           |
+| `activeTab` | Read the current tab's URL when adding a site |
