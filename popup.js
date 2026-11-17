@@ -1,4 +1,4 @@
-const DEFAULTS = { enabled: true, domains: [], text: "PRODUCTION" };
+const DEFAULTS = { enabled: true, domains: [], text: "PRODUCTION", intensity: 3 };
 const $ = (id) => document.getElementById(id);
 const store = chrome.storage.sync;
 
@@ -66,8 +66,11 @@ $("textInput").onkeydown = (e) => e.key === "Enter" && $("saveText").click();
 
 $("enabled").onchange = (e) => store.set({ enabled: e.target.checked });
 
-store.get(DEFAULTS, ({ enabled, domains, text }) => {
+$("intensity").oninput = (e) => store.set({ intensity: Number(e.target.value) });
+
+store.get(DEFAULTS, ({ enabled, domains, text, intensity }) => {
   $("enabled").checked = enabled;
+  $("intensity").value = intensity;
   $("textInput").value = text;
   render(domains);
 });

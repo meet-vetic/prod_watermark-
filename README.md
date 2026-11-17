@@ -28,6 +28,7 @@ Full URLs are accepted. Only the hostname is saved.
 ### Settings
 
 - **Watermark text:** defaults to `PRODUCTION`. You can change it in the popup.
+- **Intensity:** a 1–5 slider. At 1, a single label appears in the centre of the page. At 5, the page is covered with a full-strength tiled pattern.
 - **On/Off:** turns the watermark off on all sites without clearing your domain list.
 
 ## Privacy
