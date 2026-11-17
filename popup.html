@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Prod Guard</title>
+  <style>
+    body { width: 300px; margin: 0; padding: 14px; font: 13px system-ui, Arial, sans-serif; color: #222; }
+    header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    header img { width: 24px; height: 24px; }
+    header h1 { font-size: 15px; margin: 0; flex: 1; }
+    label.switch { display: flex; align-items: center; gap: 4px; font-size: 12px; color: #555; }
+    .row { display: flex; gap: 6px; margin-bottom: 8px; }
+    input[type="text"] { flex: 1; min-width: 0; padding: 6px; font-size: 13px; border: 1px solid #ccc; border-radius: 4px; }
+    button { padding: 6px 10px; font-size: 13px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+    button.primary { flex: 1; background: #d32f2f; border-color: #d32f2f; color: #fff; font-weight: 600; }
+    h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: #777; margin: 12px 0 6px; }
+    ul { list-style: none; padding: 0; margin: 0 0 8px; max-height: 160px; overflow-y: auto; }
+    li { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; background: #f4f4f4; border-radius: 4px; margin-bottom: 4px; word-break: break-all; }
+    li button { border: none; background: transparent; color: #c00; font-weight: bold; padding: 2px 4px; }
+    .empty { color: #999; font-style: italic; }
+    small { color: #777; line-height: 1.4; display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="" />
+    <h1>Prod Guard</h1>
+    <label class="switch"><input type="checkbox" id="enabled" /> On</label>
+  </header>
+
+  <div class="row"><button id="addCurrent" class="primary">+ Mark this site as PROD</button></div>
+  <div class="row">
+    <input type="text" id="domainInput" placeholder="app.example.com or *.example.com" />
+    <button id="addManual">Add</button>
+  </div>
+
+  <h2>Production sites</h2>
+  <ul id="domainList"></ul>
+
+  <h2>Watermark text</h2>
+  <div class="row">
+    <input type="text" id="textInput" maxlength="40" />
+    <button id="saveText">Save</button>
+  </div>
+
+  <small>Use <b>*.example.com</b> to cover all subdomains. Changes apply instantly to open tabs.</small>
+
+  <script src="popup.js"></script>
+</body>
+</html>
